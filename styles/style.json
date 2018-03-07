@@ -1,0 +1,29 @@
+{
+    "version": 8,
+    "name": "data",
+    "sources": {
+        "geojson":{
+            "type": "geojson",
+            "data": "./data/shelters_with_extra_info.geojson"
+        }
+    },
+    "layers": [
+        {
+            "id": "special_shelters",
+            "type": "fill",
+            "source": "geojson",
+            "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", ""],
+            "paint":{
+                "fill-color":"#000"
+            }
+        },
+        {
+            "id": "all_shelters",
+            "type": "line",
+            "source": "geojson",
+            "paint":{
+                "line-color": "#000"
+            }
+        }
+    ]
+}
