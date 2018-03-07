@@ -6,7 +6,7 @@ var options = {
     container: "map",
     hash: true,
     style: './styles/style.json',
-    zoom: 15,
+    zoom: 13,
     pitch: 0,
     bearing: 0,
     center: [92.1606, 21.2049],
@@ -98,7 +98,7 @@ function handleStepExit(){
 
 
 // // instantiate the scrollama
-const scroller = scrollama();
+var scroller = scrollama();
 
 // setup the instance, pass callback functions
 scroller
@@ -116,7 +116,7 @@ var locations = [
     "description": "",
     "camera": {
       center: [92.1606, 21.2049],
-      zoom: 14,
+      zoom: 13,
       pitch: 0,
       bearing: 0,
       speed: 0,
@@ -145,6 +145,48 @@ var locations = [
     "camera": {
       center: [92.1606, 21.2049],
       zoom: 16,
+      pitch: 57,
+      bearing: 0,
+      speed: 0.4,
+      curve: 3
+    },
+    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+  },
+  {
+    "id":'step3',
+    "title":"step2",
+    "description": "",
+    "camera": {
+      center: [92.1606, 21.2049],
+      zoom: 16,
+      pitch: 57,
+      bearing: 0,
+      speed: 0.4,
+      curve: 3
+    },
+    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+  },
+  {
+    "id":'step4',
+    "title":"step2",
+    "description": "",
+    "camera": {
+      center: [92.1606, 21.2049],
+      zoom: 20,
+      pitch: 57,
+      bearing: 0,
+      speed: 0.4,
+      curve: 3
+    },
+    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+  },
+  {
+    "id":'step5',
+    "title":"step2",
+    "description": "",
+    "camera": {
+      center: [92.1606, 21.2049],
+      zoom: 10,
       pitch: 57,
       bearing: 0,
       speed: 0.4,
