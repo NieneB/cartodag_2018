@@ -6,7 +6,10 @@
             "type": "vector",
             "scheme": "tile",
             "tiles": [
-                "http://localhost:8000/tiles/{z}/{x}/{y}.pbf"
+                "https://vt1.maps.geocoders.nl/cartodag/{z}/{x}/{y}.pbf",
+                "https://vt2.maps.geocoders.nl/cartodag/{z}/{x}/{y}.pbf",
+                "https://vt3.maps.geocoders.nl/cartodag/{z}/{x}/{y}.pbf",
+                "https://vt4.maps.geocoders.nl/cartodag/{z}/{x}/{y}.pbf"
             ]
         }
     },
