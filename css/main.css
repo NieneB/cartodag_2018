@@ -7,8 +7,6 @@
   src: url('../font/roboto/Roboto-Black.ttf');
 }
 
-
-
 html, body {
   border: 0;
   margin: 0;
@@ -26,7 +24,7 @@ html, body {
 
 h1{
   font-family: "Roboto Black";
-  font-size: 10em;
+  font-size: 8em;
 }
 /* MAP CANVAS & related styles */
 #map { 
@@ -42,23 +40,28 @@ h1{
 }
 
 .row {
-  height: 500px;
+  /*height: 400px;*/
   background-color:  #ffffff;
   opacity: 0.9; 
   z-index: 2;
   text-align: center;
+  padding: 40px;
 }
 
 .row.empty{
-    opacity: 0; 
+    opacity: 0;
+    height: 800px;
+}
+
+table .red {
+  background-color: #ee0000;
+  opacity: 0;
 }
 
 .content{
-    text-align: center;
     margin: auto;
     /*width: 50%;*/
     /*border: 3px solid blue;*/
-    padding: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -72,23 +75,18 @@ h1{
 .right {
     font-size: 10px;
     text-align: right;
-    position: absolute;
-    float: right;
-    float: bottom;
-    right: 0px;
-    /*border: 3px solid #73AD21;*/*/
-    padding: 10px;
-    margin: 20px;
-    z-index: 50;
+    /*border: 3px solid #73AD21;*/
+    z-index: 500;
+    cursor: pointer;
 }
 
 #down-button{
   z-index: 200;
-  float: left;
+  /*float: left;
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
   fill: #000;
   -webkit-transition-duration: 0.2s; /* Safari */
   transition-duration: 0.2s;
@@ -102,7 +100,7 @@ h1{
 }
 
 table{
-  text-align: center;
+  text-align: right;
 }
 
 

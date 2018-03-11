@@ -2,27 +2,81 @@
     "version": 8,
     "name": "data",
     "sources": {
-        "geojson":{
-            "type": "geojson",
-            "data": "./data/shelters_with_extra_info.geojson"
+        "border":{
+            "type": "vector",
+            "scheme": "tile",
+            "tiles": [
+                "http://localhost:8000/tiles/{z}/{x}/{y}.pbf"
+            ]
         }
     },
     "layers": [
         {
+            "id": "border",
+            "type": "line",
+            "source": "border",
+            "source-layer":"border",
+            "paint":{
+                "line-color": "#000",
+                "line-width": [
+                    "interpolate", ["linear"], ["zoom"],
+                    10,1,
+                    20,3
+                ]
+            }
+        },
+        {
             "id": "special_shelters",
             "type": "fill",
-            "source": "geojson",
-            "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", ""],
+            "source": "border",
+            "source-layer":"shelters_info",
+            "filter": ["==",  "facebook", ""],
             "paint":{
-                "fill-color":"#000"
+                "fill-color":"#ee0000"
+            }
+        },
+        {
+            "id": "special_shelters_blur",
+            "type": "line",
+            "source": "border",
+            "source-layer":"shelters_info",
+            "filter": ["==",  "facebook", ""],
+            "layout":{
+                "line-join":"round",
+                "line-cap": "round"
+            },
+            "paint":{
+                "line-color":"#ee0000",
+                "line-width": 40,
+                "line-blur": 3,
+                "line-opacity": 0.5
+            }
+        },
+        {
+            "id" : "one_shelter",
+            "type": "fill-extrusion",
+            "source":"border",
+            "source-layer": "shelters_info",
+            "filter":["==", "id", ""],
+            "paint":{
+                "fill-extrusion-color": "#000",
+                "fill-extrusion-height": 5
             }
         },
         {
             "id": "all_shelters",
             "type": "line",
-            "source": "geojson",
+            "source": "border",
+            "source-layer":"shelters",
+            "minzoom":12,
+            "maxzoom":20,
             "paint":{
-                "line-color": "#000"
+                "line-color": "#000",
+                "line-width": [
+                    "interpolate", ["linear"], ["zoom"],
+                    12, 0.1,
+                    20,1
+                ]
             }
         }
     ]

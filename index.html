@@ -5,148 +5,252 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Rohingya Materials</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/mapbox-gl.css">
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
 	<div id="map"></div>
 	<div class="container-fluid">
-		<div class="row" id="step0">
-			<div class="content">
-				<br/>
-				<h1 style="text-transform: uppercase;">I am <br/>Rohingya</h1>
-				<br/>
-				<div id="tooltip">
-					<div id="loader" class="loader" ></div>
+		<div class="row">
+			<div class="col-12">
+				<div class="content">
+					<br/>
+					<h1 style="text-transform: uppercase;">I am <br/>Rohingya</h1>
+					<br/>
+					<div id="tooltip">
+						<div id="loader" class="loader" ></div>
+					</div>
+					<p id="down-button"><i>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 28" height="28" width="40">
+						<path id="up" d="m20.8 27.9c0.2 0 0.4-0.1 0.5-0.2 0 0 0 0 0 0l16.1-12.6 2.3-1.8c0.2-0.1 0.3-0.3 0.3-0.6v-2-10.1c0-0.6-0.7-1-1.2-0.6L20.5 14.4h-1L1.2 0C0.7-0.4 0 0 0 0.6v10.1 2c0 0.2 0.1 0.4 0.3 0.6L18.8 27.8c0.1 0.1 0.3 0.2 0.5 0.2h1.5z"/>
+						</svg>
+					</i>
+					</p>
 				</div>
-				<br/>
-				<p id="down-button"><i>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 28" height="28" width="40">
-					<path id="up" d="m20.8 27.9c0.2 0 0.4-0.1 0.5-0.2 0 0 0 0 0 0l16.1-12.6 2.3-1.8c0.2-0.1 0.3-0.3 0.3-0.6v-2-10.1c0-0.6-0.7-1-1.2-0.6L20.5 14.4h-1L1.2 0C0.7-0.4 0 0 0 0.6v10.1 2c0 0.2 0.1 0.4 0.3 0.6L18.8 27.8c0.1 0.1 0.3 0.2 0.5 0.2h1.5z"/>
-					</svg>
-				</i>
-				</p>
 			</div>
 		</div>
 		<div class="row empty" style="height: 1000px;"></div>
-		<div class="step row" id="step1">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>spontaneous site</th></tr>
-					<tr><td>725827</td></tr>
-					<tr><th>makeshift settlement</th></tr>
-					<tr><td>9318</td></tr>
-					<tr><th>host communities</th></tr>
-					<tr><td>110223</td></tr>
-					<tr><th>official refugee camp</th></tr>
-					<tr><td>38417</td></tr>
-				</table>
+		<div class="row" >
+			<div class="col-10">
+				<div class="content step" id="step0">
+					<h1>I have a toothbrush.</h1>
+				</div>
 			</div>
-			<div class="content">
-				<h1>I moved here spontaneous.</h1>
-			</div>
-
-		</div>
-		<div class="row empty"></div>
-		<div class="step row" id="step2">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>with roof</th></tr>
-					<tr><td>30000</td></tr>
-					<tr><th>without roof</th></tr>
-					<tr><td>50000</td></tr>
-				</table>
-			</div>
-			<div class="content">
-				<h1>I have a brick house.</h1>
+			<div class="col-2">
+				<div class="content right" id="step0_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">no toothbrush</th></tr>
+						<tr><td>262155</td></tr>
+						<tr><th>has toothbrush</th></tr>
+						<tr><td>621630</td></tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" id="step3">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>afraid of unstable structure</th></tr>
-					<tr><td>216816</td></tr>
-					<tr><th>landslide, wild animals, flood</th></tr>
-					<tr><td>37706</td></tr>
-					<tr><th>no adequate lighting</th></tr>
-					<tr><td>535420</td></tr>
-					<tr><th>sharing space with strangers</th></tr>
-					<tr><td>200</td></tr>
-					<tr><th>not afraid</th></tr>
-					<tr><td>16788</td></tr>
-				</table>
+		<div class="step row" >
+			<div class="col-10">
+				<div class="content step" id="step1">
+					<h1>I have a matras.</h1>
+				</div>
 			</div>
-			<div class="content">
-				<h1>I am not afraid.</h1>
+			<div class="col-2" >
+				<div class="content right" id="step1_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">not bed material</th></tr>
+						<tr><td>202250</td></tr>
+						<tr><th>bed material mat</th></tr>
+						<tr><td>681535</td></tr>
+					</table>
+			 	</div>
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" id="step4">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>no water access</th></tr>
-					<tr><td>3290</td></tr>
-					<tr><th>water access</th></tr>
-					<tr><td>106019</td></tr>
-				</table>
+		<div class="step row">
+			<div class="col-10">
+				<div class="content step" id="step2">
+					<h1>I have a toilet.</h1>
+				</div>
 			</div>
-			<div class="content">
-				<h1>I have water.</h1>
-			</div>
-		</div>
-		<div class="row empty"></div>
-		<div class="step row" id="step5">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>water taste good</th></tr>
-					<tr><td>195714</td></tr>
-					<tr><th>water tasste bad</th></tr>
-					<tr><td>688071</td></tr>
-				</table>
-			</div>
-			<div class="content">
-				<h1>I like the water taste.</h1>
+			<div class="col-2" >
+				<div class="content right" id="step2_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th>No-one or almost no-one</th></tr>
+						<tr><td>1717</td></tr>
+						<tr><th>Some people</th></tr>
+						<tr><td>95147</td></tr>
+						<tr><th>About half of people</th></tr>
+						<tr><td>277192</td></tr>
+						<tr><th>Everyone or nearly everyone</th></tr>
+						<tr><td>76709</td></tr>
+						<tr><th>Most people</th></tr>
+						<tr><td>433020</td></tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" id="step6">
-			<div class="right">
-				<table>
-					<tr><th>TOTOAL REFUGEES</th></tr>
-					<tr><td>20000</td></tr>
-					<tr><th>facebook access</th></tr>
-					<tr><td>428</td></tr>
-					<tr><th>no facebook</th></tr>
-					<tr><td>883357</td></tr>
-				</table>
+		<div class="step row" >
+			<div class="col-10 ">
+				<div class="content step" id="step3">
+					<h1>I have water.</h1>	
+				</div>
 			</div>
-			<div class="content">
-				<h1>I have facebook.</h1>
+			<div class="col-2"  >
+				<div class="content right" id="step3_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr> <th class="red">No-one or almost no-one</th></tr>
+						<tr> <td>3290</td></tr>
+						<tr> <th class="red">Some people</th></tr>
+						<tr> <td>70945</td></tr>
+						<tr> <th cl ass="red">About half of people</th></tr>
+						<tr> <td>339598</td></tr>
+						<tr> <th>Everyone or nearly everyone</th></tr>
+						<tr> <td>106019</td></tr>
+						<tr> <th>Most people</th></tr>
+						<tr> <td>363933</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row empty"></div>
+		<div class="step row" >
+			<div class="col-10">
+				<div class="content step" id="step4">
+					<h1>I like the water taste.</h1>
+				</div>
+			</div>
+			<div class="col-2" >
+				<div class="content right" id="step4_table">
+					<table>	
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">bad water taste</th></tr>
+						<tr><td>688071</td></tr>
+						<tr><th>good water taste</th></tr>
+						<tr><td>195714</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row empty"></div>
+		<div class="step row" >
+			<div class="col-10">
+				<div class="content step" id="step5">
+					<h1>I live in a brick house.</h1>
+				</div>
+			</div>
+			<div class="col-2" >
+				<div class="content right" id="step5_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">Jhupri shacks, made of temporary materials</th></tr>
+						<tr><td>769724</td></tr>
+						<tr><th class="red">Kutcha - temporary: walls of mud and bamboo</th></tr>
+						<tr><td>111705</td></tr>
+						<tr><th>Semi-permanent, brick walls</th></tr>
+						<tr><td>333</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row empty"></div>
+		<div class="step row">
+			<div class="col-10">
+				<div class="content step" id="step6">
+					<h1>I am not afraid.</h1>
+				</div>
+			</div>
+			<div class="col-2"  >
+				<div class="content right" id="step6_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">no adequate lighting</th></tr>
+						<tr><td>535420</td></tr>
+						<tr><th class="red">afraid of unstable structure</th></tr>
+						<tr><td >216816</td></tr>
+						<tr><th class="red">fear of Break-in</th></tr>
+						<tr><td >21444</td></tr>
+						<tr><th class="red">no locks</th></tr>
+						<tr><td >54603</td></tr>
+						<tr><th class="red">landslide, wild animals, flood</th></tr>
+						<tr><td>37706</td></tr>
+						<tr><th class="red">sharing space with strangers</th></tr>
+						<tr><td>200</td></tr>
+						<tr><th>not afraid</th></tr>
+						<tr><td >16788</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row empty"></div>
+		<div class="step row" >
+			<div class="col-10">
+				<div class="content step" id="step7">
+					<h1>I have facebook.</h1>
+				</div>
+			</div>
+			<div class="col-2"  >
+				<div class="content right" id="step7_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">no facebook access</th></tr>
+						<tr><td>883357</td></tr>
+						<tr><th>facebook access</th></tr>
+						<tr><td>428</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row empty"></div>
+		<div class="step row" >
+			<div class="col-10">
+				<div class="content step" id="step8">
+					<h1>I am officially registered.</h1>
+				</div>
+			</div>
+			<div class="col-2"  >
+				<div class="content right" id="step8_table">
+					<table>
+						<tr><th>TOTAL REFUGEES</th></tr>
+						<tr><td>883785</td></tr>
+						<tr><th class="red">not registered</th></tr>
+						<tr><td>850499</td></tr>
+						<tr><th>registered</th></tr>
+						<tr><td>33286</td></tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="row empty"></div>
 		<div class="row">
-			<div class="content">
-				<h5>made by:</h5>
-				<p>Niene Boeijen</p>
-				<p>Webmapper</p>
-				<h5>Data:</h5>
-				<p>https://data.humdata.org/event/rohingya-displacement</p>
+			<div class="col-12">
+				<div class="content">
+					<h5>Niene Boeijen</h5>
+					<p>Webmapper</p>
+					<h5>Data:</h5>
+					<p>https://data.humdata.org/event/rohingya-displacement</p>
+					<h5>Map challenge Cartodag 2018</h5>
+				</div>
 			</div>
 		</div>
 	</div>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="dist/bundle.js"></script>
 </body>
 </html>

@@ -1,17 +1,20 @@
-var mapboxgl = require('mapbox-gl');
+// var mapboxgl = require('mapbox-gl');
 var scrollama = require('scrollama');
+var d3 = require('d3');
+
 
 // MAP OPTIONS
 var options = {
     container: "map",
-    hash: true,
+    hash: false,
     style: './styles/style.json',
-    zoom: 13,
+    zoom: 18,
     pitch: 0,
     bearing: 0,
-    center: [92.1606, 21.2049],
+    center:[92.1549082, 21.2030048],
     attributionControl: false
-}
+  }
+
 
 // INITIALIZE MAP
 var map = new mapboxgl.Map(options);
@@ -45,7 +48,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 // map.showCollisionBoxes = true;
 // map.repaint = false;
 
-// map.setFilter("shelters", ["==", ["get", "OBJECTID"], 3220]);
 // Loader to check if style is loaded or not:
 function isloaded(){
    var id = setInterval(frame, 40);
@@ -63,37 +65,50 @@ function isloaded(){
 };
 isloaded();
 
+// 
 
-// // // When the user moves their mouse over the states-fill layer, we'll update the filter in
-// // the state-fills-hover layer to only show the matching state, thus making a hover effect.
-// map.on("mousemove", "state-fills", function(e) {
-//       map.setFilter("state-fills-hover", ["==", "name", e.features[0].properties.name]);
-//   });
-
-// // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-// map.on("mouseleave", "state-fills", function() {
-//       map.setFilter("state-fills-hover", ["==", "name", ""]);
-//   });
-
-
+var current_step_id = "step";
+console.log('first: '+ current_step_id)
 
 function handleStepEnter(callback){
-  var current_step = callback.element.id;
-  if (current_step != "step0"){
-    var cam = locations.filter(function(a){
-      return a.id == current_step
+  current_step_id = callback.element.id;
+  console.log(current_step_id);
+  if (current_step_id != "step"){
+    var current_step = locations.filter(function(a){
+      return a.id == current_step_id
     });
-    map.flyTo(cam[0].camera);
-    map.setFilter("special_shelters", cam[0].filter);
+    console.log(current_step);  
+    if(current_step.length > 0){
+      map.flyTo(current_step[0].camera);
+      map.setFilter("one_shelter", current_step[0].filter1);
+      document.getElementById(current_step_id + '_table').addEventListener('mouseover', setstijl);
+      document.getElementById(current_step_id + '_table').addEventListener('mouseleave', resetstijl);
+    }
   }
 };
 
+function setstijl(current_step){
+  console.log("mouseover");
+  d3.selectAll('.red').style('opacity', 1);
+    var current_steps = locations.filter(function(a){
+      return a.id == current_step_id
+    });
+   map.setFilter("special_shelters", current_steps[0].filter2);
+   map.setFilter("special_shelters_blur", current_steps[0].filter2);
+
+};
+
+function resetstijl(current_step){
+  console.log("mouse leave")
+  d3.selectAll('.red').style('opacity', 0);
+  map.setFilter("special_shelters", ["==","",""]);
+  map.setFilter("special_shelters_blur", ["==","",""]);
+
+};
+
+
 function handleStepExit(){
   console.log("exit")
-  // var cam = locations.filter(function(a){
-  //   return a.id == current_step
-  // });
-  // map.flyTo(cam[0].camera);
 };
 
 
@@ -110,88 +125,131 @@ scroller
 
 // Making a slide show
 var locations = [
-  {
+   {
     "id":'step0',
-    "title":"step1",
-    "description": "",
+    "title":"toothbrush",
     "camera": {
-      center: [92.1606, 21.2049],
-      zoom: 13,
-      pitch: 0,
+      center: [92.1549082, 21.2030098],
+      zoom: 18,
+      pitch: 60,
       bearing: 0,
-      speed: 0,
-      curve: 0
+      speed: 0.2,
+      curve: 2
     },
-    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", ""]
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["==",  "toothbrush", "No"]
   },
-  {
+   {
     "id":'step1',
-    "title":"step1",
-    "description": "I have a roof",
+    "title":"bed",
     "camera": {
-      center: [92.1606, 21.2049],
-      zoom: 16,
-      pitch: 57,
+      center: [92.1549082, 21.20309],
+      zoom: 17.5,
+      pitch: 60,
       bearing: 0,
-      speed: 0.4,
-      curve: 3
+      speed: 0.3,
+      curve: 1
     },
-   "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "Yes"]
+    "filter1": ["==",  "id", "555015670"],
+    "filter2": ["==",  "bed", "No"]
   },
   {
     "id":'step2',
-    "title":"step2",
-    "description": "",
+    "title":"toilet",
     "camera": {
-      center: [92.1606, 21.2049],
-      zoom: 16,
-      pitch: 57,
+      center: [92.1549082, 21.2030048],
+      zoom: 17,
+      pitch: 0,
       bearing: 0,
-      speed: 0.4,
-      curve: 3
+      speed: 0.3,
+      curve: 1
     },
-    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["==",  "bed", "No"]
   },
   {
     "id":'step3',
-    "title":"step2",
-    "description": "",
+    "title":"water",
     "camera": {
-      center: [92.1606, 21.2049],
+      center: [92.1549082, 21.2030048],
       zoom: 16,
-      pitch: 57,
+      pitch: 0,
       bearing: 0,
-      speed: 0.4,
-      curve: 3
+      speed: 0.3,
+      curve: 1
     },
-    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["in", "water_access", "About half of people", "Some people", "No-one or almost no-one"]
   },
   {
     "id":'step4',
-    "title":"step2",
-    "description": "",
+    "title":"water taste",
     "camera": {
-      center: [92.1606, 21.2049],
-      zoom: 20,
-      pitch: 57,
+      center: [92.1549082, 21.2030048],
+      zoom: 16,
+      pitch: 0,
       bearing: 0,
-      speed: 0.4,
-      curve: 3
+      speed: 0.3,
+      curve: 1
     },
-    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["==",  "taste", "No"]
   },
   {
     "id":'step5',
-    "title":"step2",
+    "title":"settlement material",
+    "camera": {
+      center: [92.1549082, 21.2030048],
+      zoom: 15.5,
+      pitch: 0,
+      bearing: 0,
+      speed: 0.3,
+      curve: 1
+    },
+    "filter1": ["==",  "id", "555015664"],
+   "filter2": ["!=",  "shelter_type", "Kutcha - temporary: walls  made of mud/ brick or woven bamboo, roof made of sun-grass/tarps/wood"]
+  },
+   {
+    "id":'step6',
+    "title":"safety",
     "description": "",
     "camera": {
-      center: [92.1606, 21.2049],
-      zoom: 10,
-      pitch: 57,
+      center: [92.1549082, 21.2030048],
+      zoom: 15,
+      pitch: 0,
       bearing: 0,
-      speed: 0.4,
-      curve: 3
+      speed: 0.3,
+      curve: 1
     },
-    "filter": ["==",  "Hub distance_sa-r8-dataset_all-attribute-2018-02-08_2_Don’t like taste", "No"]
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["in",  "safety","Fear of Break-in", "Location of the shelter exposed to landslide, wild animals, flood","No adequate lighting","No locks","Sharing space with strangers","Unstable structure"]
+  },
+  {
+    "id":'step7',
+    "title":"Facebook",
+    "camera": {
+      center: [92.1549082, 21.2030048],
+      zoom: 14,
+      pitch: 0,
+      bearing: 0,
+      speed: 0.3,
+      curve: 1
+    },
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["==",  "facebook", "No"]
+  },
+  {
+    "id":'step8',
+    "title":"official",
+    "camera": {
+      center: [92.1549082, 21.2030048],
+      zoom: 13,
+      pitch: 0,
+      bearing: 0,
+      speed: 0.3,
+      curve: 1
+    },
+    "filter1": ["==",  "id", "555015664"],
+    "filter2": ["==",  "registered", "No"]
   }
 ];
