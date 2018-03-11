@@ -54,8 +54,7 @@ h1{
 }
 
 table .red {
-  background-color: #ee0000;
-  opacity: 0;
+  text-decoration: underline;
 }
 
 .content{
@@ -73,7 +72,7 @@ table .red {
 }
 
 .right {
-    font-size: 10px;
+    font-size: 12px;
     text-align: right;
     /*border: 3px solid #73AD21;*/
     z-index: 500;

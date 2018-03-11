@@ -39,23 +39,6 @@
             }
         },
         {
-            "id": "special_shelters_blur",
-            "type": "line",
-            "source": "border",
-            "source-layer":"shelters_info",
-            "filter": ["==",  "facebook", ""],
-            "layout":{
-                "line-join":"round",
-                "line-cap": "round"
-            },
-            "paint":{
-                "line-color":"#ee0000",
-                "line-width": 40,
-                "line-blur": 3,
-                "line-opacity": 0.5
-            }
-        },
-        {
             "id" : "one_shelter",
             "type": "fill-extrusion",
             "source":"border",
@@ -72,13 +55,13 @@
             "source": "border",
             "source-layer":"shelters",
             "minzoom":12,
-            "maxzoom":20,
+            "maxzoom":21,
             "paint":{
-                "line-color": "#000",
+                "line-color": "#939393",
                 "line-width": [
                     "interpolate", ["linear"], ["zoom"],
-                    12, 0.1,
-                    20,1
+                    13, 0.01,
+                    20,0.5
                 ]
             }
         }

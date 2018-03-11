@@ -6,7 +6,7 @@ var d3 = require('d3');
 // MAP OPTIONS
 var options = {
     container: "map",
-    hash: false,
+    hash: true,
     style: './styles/style.json',
     zoom: 18,
     pitch: 0,
@@ -18,7 +18,7 @@ var options = {
 
 // INITIALIZE MAP
 var map = new mapboxgl.Map(options);
-map.addControl(new mapboxgl.AttributionControl(), "bottom-left");
+// map.addControl(new mapboxgl.AttributionControl(), "bottom-left");
 
 // MOBILE 
 document.addEventListener('touchmove', function(event) {
@@ -33,7 +33,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   map.touchZoomRotate.enable({ around: 'center' });
   map.touchZoomRotate.enableRotation();
 } else { 
-  // map.addControl(new mapboxgl.NavigationControl(), 'top-left'); 
+  map.addControl(new mapboxgl.NavigationControl(), 'top-left'); 
   // MAP MOUSE EVENT
   map.scrollZoom.enable();
   map.scrollZoom.enable({ around: 'center' })
@@ -89,7 +89,7 @@ function handleStepEnter(callback){
 
 function setstijl(current_step){
   console.log("mouseover");
-  d3.selectAll('.red').style('opacity', 1);
+  d3.selectAll('.red').style('background-color',  "rgba(255,0,0,1)");
     var current_steps = locations.filter(function(a){
       return a.id == current_step_id
     });
@@ -100,10 +100,9 @@ function setstijl(current_step){
 
 function resetstijl(current_step){
   console.log("mouse leave")
-  d3.selectAll('.red').style('opacity', 0);
+  d3.selectAll('.red').style('background-color',  "rgba(255,0,0,0)");
   map.setFilter("special_shelters", ["==","",""]);
   map.setFilter("special_shelters_blur", ["==","",""]);
-
 };
 
 
@@ -129,84 +128,83 @@ var locations = [
     "id":'step0',
     "title":"toothbrush",
     "camera": {
-      center: [92.1549082, 21.2030098],
-      zoom: 18,
+      center: [92.15227552, 21.20650911],
+      zoom: 20,
       pitch: 60,
       bearing: 0,
-      speed: 0.2,
-      curve: 2
+      speed: 0.25,
+      curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
+    "filter1": ["==",  "id", "555317976"],
     "filter2": ["==",  "toothbrush", "No"]
   },
    {
     "id":'step1',
     "title":"bed",
     "camera": {
-      center: [92.1549082, 21.20309],
-      zoom: 17.5,
+      center: [92.15973847, 21.19958164],
+      zoom: 19,
       pitch: 60,
       bearing: 0,
-      speed: 0.3,
+      speed: 0.25,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015670"],
+    "filter1": ["==",  "id", "556763135"],
     "filter2": ["==",  "bed", "No"]
   },
   {
     "id":'step2',
     "title":"toilet",
     "camera": {
-      center: [92.1549082, 21.2030048],
-      zoom: 17,
-      pitch: 0,
+      center: [92.1541534, 21.2006622],
+      zoom: 18,
+      pitch: 50,
       bearing: 0,
-      speed: 0.3,
+      speed: 0.25,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
-    "filter2": ["==",  "bed", "No"]
+    "filter1": ["==",  "id", "542251998"],
+    "filter2": ["in",  "latrine","About half of people", "Some people", "No-one or almost no-one"]
   },
   {
     "id":'step3',
     "title":"water",
     "camera": {
-      center: [92.1549082, 21.2030048],
-      zoom: 16,
-      pitch: 0,
+      center: [92.1597177, 21.1996155],
+      zoom: 17,
+      pitch: 40,
       bearing: 0,
-      speed: 0.3,
+      speed: 0.25,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
+    "filter1": ["==",  "id", "556763135"],
     "filter2": ["in", "water_access", "About half of people", "Some people", "No-one or almost no-one"]
   },
   {
     "id":'step4',
     "title":"water taste",
     "camera": {
-      center: [92.1549082, 21.2030048],
+      center: [92.1514176, 21.1908583],
       zoom: 16,
-      pitch: 0,
+      pitch: 30,
       bearing: 0,
-      speed: 0.3,
+      speed: 0.25,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
+    "filter1": ["==",  "id", "558087852"],
     "filter2": ["==",  "taste", "No"]
   },
   {
     "id":'step5',
     "title":"settlement material",
     "camera": {
-      center: [92.1549082, 21.2030048],
+      center: [92.16339871, 21.21227861],
       zoom: 15.5,
-      pitch: 0,
-      bearing: 0,
+      pitch: 20,
       speed: 0.3,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
+    "filter1": ["==",  "id", "561617603"],
    "filter2": ["!=",  "shelter_type", "Kutcha - temporary: walls  made of mud/ brick or woven bamboo, roof made of sun-grass/tarps/wood"]
   },
    {
@@ -214,15 +212,15 @@ var locations = [
     "title":"safety",
     "description": "",
     "camera": {
-      center: [92.1549082, 21.2030048],
+      center: [92.15, 21.19],
       zoom: 15,
-      pitch: 0,
+      pitch: 10,
       bearing: 0,
       speed: 0.3,
       curve: 1
     },
-    "filter1": ["==",  "id", "555015664"],
-    "filter2": ["in",  "safety","Fear of Break-in", "Location of the shelter exposed to landslide, wild animals, flood","No adequate lighting","No locks","Sharing space with strangers","Unstable structure"]
+    "filter1": ["==", "id", "555015664"],
+    "filter2": ["in", "safety","Fear of Break-in", "Location of the shelter exposed to landslide, wild animals, flood","No adequate lighting","No locks","Sharing space with strangers","Unstable structure"]
   },
   {
     "id":'step7',
@@ -242,7 +240,7 @@ var locations = [
     "id":'step8',
     "title":"official",
     "camera": {
-      center: [92.1549082, 21.2030048],
+      center: [92.154, 21.203],
       zoom: 13,
       pitch: 0,
       bearing: 0,
