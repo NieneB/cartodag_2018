@@ -6,7 +6,7 @@ var d3 = require('d3');
 // MAP OPTIONS
 var options = {
     container: "map",
-    hash: true,
+    hash: false,
     style: './styles/style.json',
     zoom: 18,
     pitch: 0,
@@ -33,7 +33,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   map.touchZoomRotate.enable({ around: 'center' });
   map.touchZoomRotate.enableRotation();
 } else { 
-  map.addControl(new mapboxgl.NavigationControl(), 'top-left'); 
+  // map.addControl(new mapboxgl.NavigationControl(), 'top-left'); 
   // MAP MOUSE EVENT
   map.scrollZoom.enable();
   map.scrollZoom.enable({ around: 'center' })
@@ -146,7 +146,7 @@ var locations = [
       zoom: 19,
       pitch: 60,
       bearing: 0,
-      speed: 0.25,
+      speed: 0.3,
       curve: 1
     },
     "filter1": ["==",  "id", "556763135"],
@@ -212,7 +212,7 @@ var locations = [
     "title":"safety",
     "description": "",
     "camera": {
-      center: [92.15, 21.19],
+      center: [92.1549082, 21.2030048],
       zoom: 15,
       pitch: 10,
       bearing: 0,
@@ -240,7 +240,7 @@ var locations = [
     "id":'step8',
     "title":"official",
     "camera": {
-      center: [92.154, 21.203],
+      center: [92.1549, 21.2030],
       zoom: 13,
       pitch: 0,
       bearing: 0,
