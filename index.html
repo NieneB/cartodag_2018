@@ -5,21 +5,24 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Rohingya</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="css/mapbox-gl.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
-	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+
+	<!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' /> -->
 </head>
 <body>
 	<div id="map"></div>
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" id="top">
 			<div class="col-12">
 				<div class="content">
 					<br/>
 					<h1 style="text-transform: uppercase;">I am <br/>Rohingya</h1>
 					<br/>
-					<div id="tooltip">
-						<div id="loader" class="loader" ></div>
+					<div class="content" id="tooltip">
+						<div class="loader"></div>
 					</div>
 					<p id="down-button"><i>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 28" height="28" width="40">
@@ -31,14 +34,19 @@
 			</div>
 		</div>
 		<div class="row empty" style="height: 1000px;"></div>
-		<div class="row" >
-			<div class="col-10">
+		<div class="row" id="row0">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step0">
 					<h1>I have a toothbrush.</h1>
 				</div>
 			</div>
 			<div class="col-2">
-				<div class="content right" id="step0_table">
+				<div class="content right" id="row0_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -51,14 +59,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10">
+		<div class="step row" id="row1">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step1">
 					<h1>I have a mattress.</h1>
 				</div>
 			</div>
 			<div class="col-2" >
-				<div class="content right" id="step1_table">
+				<div class="content right" id="row1_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -71,14 +84,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row">
-			<div class="col-10">
+		<div class="step row" id="row2">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step2">
 					<h1>I have a toilet.</h1>
 				</div>
 			</div>
 			<div class="col-2" >
-				<div class="content right" id="step2_table">
+				<div class="content right" id="row2_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -97,14 +115,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10 ">
+		<div class="step row" id="row3">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9 ">
 				<div class="content step" id="step3">
 					<h1>I have water.</h1>	
 				</div>
 			</div>
 			<div class="col-2"  >
-				<div class="content right" id="step3_table">
+				<div class="content right" id="row3_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -123,14 +146,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10">
+		<div class="step row" id="row4" >
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step4">
 					<h1>I like the water taste.</h1>
 				</div>
 			</div>
 			<div class="col-2" >
-				<div class="content right" id="step4_table">
+				<div class="content right" id="row4_table">
 					<table>	
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -143,14 +171,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10">
+		<div class="step row" id="row5">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step5">
 					<h1>I live in a brick house.</h1>
 				</div>
 			</div>
 			<div class="col-2" >
-				<div class="content right" id="step5_table">
+				<div class="content right" id="row5_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -165,14 +198,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row">
-			<div class="col-10">
+		<div class="step row" id="row6">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step6">
 					<h1>I am not afraid.</h1>
 				</div>
 			</div>
 			<div class="col-2"  >
-				<div class="content right" id="step6_table">
+				<div class="content right" id="row6_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -195,14 +233,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10">
+		<div class="step row" id="row7">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step7">
 					<h1>I have facebook.</h1>
 				</div>
 			</div>
 			<div class="col-2"  >
-				<div class="content right" id="step7_table">
+				<div class="content right" id="row7_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -215,14 +258,19 @@
 			</div>
 		</div>
 		<div class="row empty"></div>
-		<div class="step row" >
-			<div class="col-10">
+		<div class="step row" id="row8">
+			<div class="col-1">
+				<div class="content" id="tooltip">
+					<div id="loader" class="loader" ></div>
+				</div>
+			</div>
+			<div class="col-9">
 				<div class="content step" id="step8">
 					<h1>I am officially registered.</h1>
 				</div>
 			</div>
 			<div class="col-2"  >
-				<div class="content right" id="step8_table">
+				<div class="content right" id="row8_table">
 					<table>
 						<tr><th>TOTAL REFUGEES</th></tr>
 						<tr><td>883785</td></tr>
@@ -247,10 +295,10 @@
 			</div>
 		</div>
 	</div>
-	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="dist/bundle.js"></script>
 </body>
 </html>
