@@ -41,6 +41,7 @@ var current_step_id = "step";
 function handleStepEnter(callback){
   // loader.style("display", "block");
   current_step_id = callback;
+  resetstijl();
   if (current_step_id != "row"){
     var current_step = locations.filter(function(a){
       return a.id == current_step_id
@@ -65,6 +66,7 @@ function setstijl(current_step){
 };
 // RESET stijl filters
 function resetstijl(current_step){
+  console.log("reset");
   d3.selectAll('.red').style('background-color',  "rgba(255,0,0,0)");
   map.setFilter("special_shelters", ["==","",""]);
   map.setFilter("special_shelters_blur", ["==","",""]);
